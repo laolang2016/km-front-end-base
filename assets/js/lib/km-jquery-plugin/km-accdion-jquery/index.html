@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="external/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="jquery.km.accordion.css"/>
+    <style>
+        body {
+            padding: 20px 0 0 20px;
+            height: 5000px;
+        }
+
+        .box {
+            padding: 20px;
+            float: left;
+        }
+
+        .ac-box {
+            width: 298px;
+        }
+
+        .ac-box.border {
+            border: 1px solid red;
+        }
+
+        p {
+            line-height: 25px;
+            text-indent: 2em;
+            padding: 0 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="ac-box border">
+        <div id="one" class="km-accordion">
+            <h3>第一段</h3>
+            <div>
+                <p>The Clarkson family lived in the country near Cambridge，about half a mile from the nearest village
+                    and about a mile from the river．They had a big，old house with a beautiful garden，a lot of flowers
+                    and many old．trees．</p>
+            </div>
+            <h3>第二段</h3>
+            <div>
+                <p>
+                    One Thursday morning in July，Jackie came in from the garden．She was a tall，fat woman，thirty years
+                    old．It was the hottest day of the year，but she wore a warm brown skirt and yellow shirt．She went
+                    into the kitchen to get a drink of water．Just then the phone rang
+                </p>
+            </div>
+            <h3>第三段</h3>
+            <div>
+                <p>
+                    Jackie put the phone down．She took a cigarette from her bag and began to smoke．She felt angry
+                    because her sister always asked for money．Diane was twenty years old， the youngest in the family．She
+                    lived in London，in one room of a big house．She wanted to be a singer．She sang very well but she
+                    could never get work．
+                </p>
+            </div>
+            <h3>第四段</h3>
+            <div>
+                <p>'Mother，please wait a minute，'Jackie said．'Peter Hobbs came here this morning．He's very angry with
+                    you about that letter．He lost his job，you know．Why did you write to his office？He wants to talk to
+                    you about it．'</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="box">
+    <div class="ac-box border">
+        <div id="two" class="km-accordion">
+            <h3>第一段</h3>
+            <div>
+                <p>
+                    “啊，公爵，热那亚和卢加现在是波拿巴家族的领地，不过，我得事先对您说，如果您不对我说我们这里处于战争状态，如果您还敢袒护这个基督的敌人（我确乎相信，他是一个基督的敌人）的种种卑劣行径和他一手造成的灾祸，那么我就不再管您了。您就不再是我的朋友，您就不再是，如您所说的，我的忠实的奴隶。啊，您好，您好。我看我正在吓唬您了，请坐，讲给我听。”</p>
+            </div>
+            <h3>第二段</h3>
+            <div>
+                <p>
+                    一八○五年七月，遐迩闻名的安娜-帕夫洛夫娜-舍列尔——皇后玛丽亚-费奥多罗夫娜的宫廷女官和心腹，在欢迎首位莅临晚会的达官显要瓦西里公爵时说过这番话。安娜-帕夫洛夫娜一连咳嗽几天了。正如她所说，她身罹流行性感冒（那时候，流行性感冒是个新词，只有少数人才用它）。清早由一名红衣听差在分别发出的便函中，千篇一律地写道：“伯爵（或公爵），如您意下尚无任何可取的娱乐，如今日晚上这个可怜的女病人的症候不致使您过分惧怕，则请于七时至十时间莅临寒舍，不胜雀跃。安娜-舍列尔。”
+                </p>
+            </div>
+            <h3>第三段</h3>
+            <div>
+                <p>
+                    他讲的是优雅的法语，我们的祖辈不仅借助它来说话，而且借助它来思考，他说起话来带有很平静的、长辈庇护晚辈时特有的腔调，那是上流社会和宫廷中德高望重的老年人独具的语调。他向安娜-帕夫洛夫娜跟前走来，把那洒满香水的闪闪发亮的秃头凑近她，吻吻她的手，就心平气和地坐到沙发上
+                </p>
+            </div>
+            <h3>第四段</h3>
+            <div>
+                <p>
+                    她满腔热情，使她取得了社会地位。有时她甚至没有那种希冀，但为不辜负熟悉她的人们的期望，她还是要做一个满腔热情的人。安娜-帕夫洛夫娜脸上经常流露的冷淡的微笑，虽与她的憔悴的面容不相称，但却像娇生惯养的孩童那样，表示她经常意识到自己的微小缺点，不过她不想，也无法而且认为没有必要去把它改正'</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" charset="UTF-8" src="./external/jquery.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="jquery.km.accordion.js"></script>
+<script type="text/javascript" charset="UTF-8">
+    var oneAc = null;
+    var twoAc = null;
+    $(function () {
+
+        // var one = $('#one').kmAccordion({
+        oneAc = $('#one').kmAccordion({
+            halign: 'center',
+            animate: true,
+            selected: 1,
+            multiple : true,
+            onSelect : function (title, index) {
+                console.log('onSelect---title='+title + ' index='+index);
+            }
+        });
+        // var two = $('#two').kmAccordion({
+        twoAc = $('#two').kmAccordion({
+            halign: 'right',
+            selected: 2,
+            border: true,
+            borderStyle: {
+                'border': '3px solid blue'
+            }
+        });
+
+
+        // console.log(one.kmAccordion('options'));
+        // console.log(two.kmAccordion('options'));
+
+    });
+</script>
+</body>
+</html>

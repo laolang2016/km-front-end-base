@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            padding: 20px 0 0 20px;
+            height: 5000px;
+        }
+
+        .box {
+            padding: 20px;
+            float: left;
+        }
+
+        .ac-box {
+            width: 298px;
+        }
+
+        .ac-box.border {
+            border: 1px solid red;
+        }
+
+        p {
+            line-height: 25px;
+            text-indent: 2em;
+            padding: 0 5px;
+        }
+
+        span.red {
+            color: red;
+        }
+
+        span.blue {
+            color: blue;
+        }
+
+        .progressbar {
+            color: red;
+            width: 200px;
+            height: 25px;
+            line-height: 25px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+
+<div id="one"></div>
+
+
+<script type="text/javascript" charset="UTF-8" src="./external/jquery.min.js"></script>
+<!--<script type="text/javascript" charset="UTF-8" src="./external/jquery-ui.min.js"></script>-->
+<script type="text/javascript" charset="UTF-8" src="./external/widget.js"></script>
+<script type="text/javascript" charset="UTF-8" src="one.js"></script>
+<script type="text/javascript" charset="UTF-8">
+    var one = null;
+    $(function () {
+        $.widget('km.progressbar', {
+            options: {
+                value: 50
+            },
+            _create: function () {
+                var progress = this.options.value + '%';
+                this.element.addClass('progressbar')
+                    .text(progress);
+            },
+
+            _setOption: function (key, value) {
+                console.log('key:' + key + ' value:' + value);
+                this._constrain(value);
+                this.options[key] = value;
+                this._update();
+            },
+
+            _update: function () {
+                var progress = this.options.value + '%';
+                this.element.text(progress);
+                if (100 === this.options.value) {
+                    this._trigger('complete', null, {value: 100});
+                }
+            },
+
+            _constrain: function (value) {
+
+                if (value > 100) {
+                    value = 100;
+                }
+
+                if (value < 0) {
+                    value = 0;
+                }
+
+                return value;
+            }
+        });
+
+        one = $('#one').progressbar().data('progressbar');
+    });
+</script>
+</body>
+</html>

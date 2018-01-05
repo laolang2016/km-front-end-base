@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.km-accordion{
+    overflow: hidden;
+}
+
+.km-accordion > h3{
+    display: block;
+    background-color: #ededed;
+    padding: 6px 0 6px 25px;
+    border: 1px solid #d3d3d3;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.km-accordion > h3:first-child{
+    margin-top: 0;
+}
+
+.km-accordion > h3.active{
+    background-color: #ffffff;
+}
+
+.km-accordion > div{
+    display: none;
+}
